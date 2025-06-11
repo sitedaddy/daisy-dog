@@ -362,7 +362,7 @@ section {
 
 .service-card h3 {
     font-size: 1.5rem;
-    color: var(--primary-pink);
+    color: var(--primary-green);
     margin-bottom: 1rem;
 }
 
@@ -387,14 +387,14 @@ section {
     content: '✓';
     position: absolute;
     left: 0;
-    color: var(--primary-pink);
+    color: var(--primary-green);
     font-weight: bold;
 }
 
 .service-price {
     font-size: 1.5rem;
     font-weight: 700;
-    color: var(--primary-blue);
+    color: var(--accent-blue);
     margin: 1rem 0;
     display: flex;
     align-items: center;
@@ -562,7 +562,7 @@ section {
 }
 
 .contact-item h4 {
-    color: var(--primary-pink);
+    color: var(--primary-green);
     margin-bottom: 0.5rem;
     font-size: 1.1rem;
 }
@@ -580,7 +580,7 @@ section {
 }
 
 .contact-item a:hover {
-    color: var(--primary-pink);
+    color: var(--primary-green);
 }
 
 .business-hours-item {
@@ -607,7 +607,7 @@ section {
 
 /* Footer */
 .footer {
-    background: linear-gradient(135deg, var(--primary-pink), var(--primary-blue));
+    background: var(--primary-green);
     color: white;
     padding: 3rem 0 1rem;
 }
@@ -794,7 +794,7 @@ section {
 
 /* Active navigation link */
 .nav-link.active {
-    color: var(--primary-pink);
+    color: var(--primary-green);
 }
 
 .nav-link.active::after {
@@ -803,7 +803,7 @@ section {
 
 /* Booking Section */
 .booking {
-    background: linear-gradient(135deg, var(--primary-pink), var(--primary-teal));
+    background: linear-gradient(135deg, var(--primary-green), var(--accent-blue));
     color: white;
 }
 
@@ -864,7 +864,7 @@ section {
 
 .btn-submit {
     background: white;
-    color: var(--primary-pink);
+    color: var(--primary-green);
     font-weight: 700;
     font-size: 1.1rem;
     padding: 15px 40px;
