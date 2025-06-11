@@ -6,6 +6,7 @@ document.addEventListener('DOMContentLoaded', function() {
     initReviews();
     initContactInfo();
     initScrollAnimations();
+    initBookingForm();
 });
 
 // Navigation functionality
@@ -273,6 +274,102 @@ function loadGoogleMapsData() {
     // 4. Populate contact information
     
     console.log('Google Maps API integration ready');
+}
+
+// Initialize booking form functionality
+function initBookingForm() {
+    const bookingForm = document.getElementById('booking-form');
+    const dateInput = document.getElementById('preferred-date');
+    
+    // Set minimum date to today
+    if (dateInput) {
+        const today = new Date().toISOString().split('T')[0];
+        dateInput.setAttribute('min', today);
+    }
+    
+    // Handle form submission
+    if (bookingForm) {
+        bookingForm.addEventListener('submit', function(e) {
+            e.preventDefault();
+            handleBookingSubmission();
+        });
+    }
+}
+
+// Handle booking form submission
+function handleBookingSubmission() {
+    const form = document.getElementById('booking-form');
+    const formData = new FormData(form);
+    
+    // Create booking summary
+    const bookingData = {
+        petName: formData.get('pet-name'),
+        petBreed: formData.get('pet-breed'),
+        ownerName: formData.get('owner-name'),
+        phone: formData.get('phone'),
+        email: formData.get('email'),
+        service: formData.get('service'),
+        preferredDate: formData.get('preferred-date'),
+        preferredTime: formData.get('preferred-time'),
+        petSize: formData.get('pet-size'),
+        specialRequests: formData.get('special-requests')
+    };
+    
+    // Show confirmation message
+    showBookingConfirmation(bookingData);
+}
+
+// Show booking confirmation
+function showBookingConfirmation(data) {
+    const formContainer = document.querySelector('.booking-form');
+    
+    // Get service name for display
+    const serviceOptions = {
+        'full-grooming': 'Full Grooming',
+        'bath-brush': 'Bath & Brush',
+        'nail-care': 'Nail Care',
+        'specialty-treatments': 'Specialty Treatments'
+    };
+    
+    const serviceName = serviceOptions[data.service] || data.service;
+    
+    // Create confirmation message
+    const confirmationHTML = `
+        <div class="booking-confirmation">
+            <div class="confirmation-icon">
+                <i class="fas fa-check-circle"></i>
+            </div>
+            <h3>Booking Request Submitted!</h3>
+            <p>Thank you for choosing Fetch22 Pet Styling. We've received your booking request and will contact you within 24 hours to confirm your appointment.</p>
+            
+            <div class="booking-summary">
+                <h4>Booking Summary:</h4>
+                <div class="summary-item">
+                    <strong>Pet:</strong> ${data.petName}${data.petBreed ? ` (${data.petBreed})` : ''}
+                </div>
+                <div class="summary-item">
+                    <strong>Owner:</strong> ${data.ownerName}
+                </div>
+                <div class="summary-item">
+                    <strong>Service:</strong> ${serviceName}
+                </div>
+                <div class="summary-item">
+                    <strong>Preferred Date & Time:</strong> ${data.preferredDate} at ${data.preferredTime}
+                </div>
+                <div class="summary-item">
+                    <strong>Contact:</strong> ${data.phone} | ${data.email}
+                </div>
+                ${data.specialRequests ? `<div class="summary-item"><strong>Special Requests:</strong> ${data.specialRequests}</div>` : ''}
+            </div>
+            
+            <div class="confirmation-actions">
+                <button onclick="location.reload()" class="btn btn-primary">Book Another Appointment</button>
+                <a href="#contact" class="btn btn-secondary">Contact Us</a>
+            </div>
+        </div>
+    `;
+    
+    formContainer.innerHTML = confirmationHTML;
 }
 
 // Initialize everything when the page loads

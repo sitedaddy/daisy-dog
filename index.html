@@ -20,8 +20,7 @@
     <nav class="navbar" id="navbar">
         <div class="nav-container">
             <div class="nav-logo">
-                <img src="assets/paw-icon.svg" alt="Fetch22 Pet Styling" class="logo-icon">
-                <span class="logo-text">Fetch22 Pet Styling</span>
+                <img src="assets/fetch22-logo.svg" alt="Fetch22 Pet Styling" class="logo-main">
             </div>
             <ul class="nav-menu" id="nav-menu">
                 <li class="nav-item">
@@ -138,12 +137,17 @@
                     </div>
                     <h3>Bath & Brush</h3>
                     <p>Refreshing bath service with premium shampoos, thorough brushing, and basic maintenance care.</p>
+                    <div class="service-price">
+                        <span class="currency">AUD</span>
+                        <span>$45 - $75</span>
+                    </div>
                     <ul class="service-features">
                         <li>Premium shampoo & conditioner</li>
                         <li>Thorough brushing</li>
                         <li>Basic nail trim</li>
                         <li>Ear cleaning</li>
                     </ul>
+                    <a href="#booking" class="btn btn-booking">Book This Service</a>
                 </div>
                 
                 <div class="service-card">
@@ -152,12 +156,17 @@
                     </div>
                     <h3>Nail Care</h3>
                     <p>Professional nail trimming and paw care to keep your pet comfortable and healthy.</p>
+                    <div class="service-price">
+                        <span class="currency">AUD</span>
+                        <span>$25 - $35</span>
+                    </div>
                     <ul class="service-features">
                         <li>Precision nail trimming</li>
                         <li>Paw pad conditioning</li>
                         <li>Quick & stress-free</li>
                         <li>Regular maintenance plans</li>
                     </ul>
+                    <a href="#booking" class="btn btn-booking">Book This Service</a>
                 </div>
                 
                 <div class="service-card">
@@ -166,12 +175,17 @@
                     </div>
                     <h3>Specialty Treatments</h3>
                     <p>Additional services including flea treatments, de-shedding, and therapeutic baths for sensitive skin.</p>
+                    <div class="service-price">
+                        <span class="currency">AUD</span>
+                        <span>$55 - $95</span>
+                    </div>
                     <ul class="service-features">
                         <li>Flea & tick treatments</li>
                         <li>De-shedding services</li>
                         <li>Medicated baths</li>
                         <li>Skin condition care</li>
                     </ul>
+                    <a href="#booking" class="btn btn-booking">Book This Service</a>
                 </div>
             </div>
         </div>
@@ -210,6 +224,99 @@
                         View All Reviews on Google
                     </a>
                 </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Booking Section -->
+    <section id="booking" class="booking">
+        <div class="container">
+            <div class="section-header">
+                <h2 class="section-title">Book Your Appointment</h2>
+                <p class="section-subtitle">Schedule your pet's grooming session today</p>
+            </div>
+            
+            <div class="booking-form">
+                <form id="booking-form">
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label for="pet-name">Pet's Name *</label>
+                            <input type="text" id="pet-name" name="pet-name" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="pet-breed">Breed</label>
+                            <input type="text" id="pet-breed" name="pet-breed" placeholder="e.g., Golden Retriever">
+                        </div>
+                    </div>
+                    
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label for="owner-name">Your Name *</label>
+                            <input type="text" id="owner-name" name="owner-name" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="phone">Phone Number *</label>
+                            <input type="tel" id="phone" name="phone" required>
+                        </div>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="email">Email Address *</label>
+                        <input type="email" id="email" name="email" required>
+                    </div>
+                    
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label for="service">Service Required *</label>
+                            <select id="service" name="service" required>
+                                <option value="">Select a service</option>
+                                <option value="full-grooming">Full Grooming ($85 - $150)</option>
+                                <option value="bath-brush">Bath & Brush ($45 - $75)</option>
+                                <option value="nail-care">Nail Care ($25 - $35)</option>
+                                <option value="specialty-treatments">Specialty Treatments ($55 - $95)</option>
+                            </select>
+                        </div>
+                        <div class="form-group">
+                            <label for="preferred-date">Preferred Date *</label>
+                            <input type="date" id="preferred-date" name="preferred-date" required>
+                        </div>
+                    </div>
+                    
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label for="preferred-time">Preferred Time *</label>
+                            <select id="preferred-time" name="preferred-time" required>
+                                <option value="">Select time</option>
+                                <option value="9:00">9:00 AM</option>
+                                <option value="10:00">10:00 AM</option>
+                                <option value="11:00">11:00 AM</option>
+                                <option value="12:00">12:00 PM</option>
+                                <option value="13:00">1:00 PM</option>
+                                <option value="14:00">2:00 PM</option>
+                                <option value="15:00">3:00 PM</option>
+                                <option value="16:00">4:00 PM</option>
+                                <option value="17:00">5:00 PM</option>
+                            </select>
+                        </div>
+                        <div class="form-group">
+                            <label for="pet-size">Pet Size</label>
+                            <select id="pet-size" name="pet-size">
+                                <option value="">Select size</option>
+                                <option value="small">Small (under 10kg)</option>
+                                <option value="medium">Medium (10-25kg)</option>
+                                <option value="large">Large (25-45kg)</option>
+                                <option value="extra-large">Extra Large (over 45kg)</option>
+                            </select>
+                        </div>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="special-requests">Special Requests or Notes</label>
+                        <textarea id="special-requests" name="special-requests" rows="4" placeholder="Any special care instructions, behavioral notes, or specific requests..."></textarea>
+                    </div>
+                    
+                    <button type="submit" class="btn btn-submit">Submit Booking Request</button>
+                </form>
             </div>
         </div>
     </section>
