@@ -351,7 +351,7 @@ section {
 .service-icon {
     width: 80px;
     height: 80px;
-    background: linear-gradient(135deg, #2c5530, #4a7c59);
+    background: linear-gradient(135deg, var(--primary-pink), var(--primary-teal));
     border-radius: 50%;
     display: flex;
     align-items: center;
@@ -366,7 +366,7 @@ section {
 
 .service-card h3 {
     font-size: 1.5rem;
-    color: #2c5530;
+    color: var(--primary-pink);
     margin-bottom: 1rem;
 }
 
@@ -391,8 +391,24 @@ section {
     content: '✓';
     position: absolute;
     left: 0;
-    color: #2c5530;
+    color: var(--primary-pink);
     font-weight: bold;
+}
+
+.service-price {
+    font-size: 1.5rem;
+    font-weight: 700;
+    color: var(--primary-blue);
+    margin: 1rem 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.5rem;
+}
+
+.service-price .currency {
+    font-size: 1rem;
+    font-weight: 500;
 }
 
 /* Reviews Section */
@@ -550,7 +566,7 @@ section {
 }
 
 .contact-item h4 {
-    color: #2c5530;
+    color: var(--primary-pink);
     margin-bottom: 0.5rem;
     font-size: 1.1rem;
 }
@@ -568,7 +584,7 @@ section {
 }
 
 .contact-item a:hover {
-    color: #2c5530;
+    color: var(--primary-pink);
 }
 
 .business-hours-item {
@@ -595,7 +611,7 @@ section {
 
 /* Footer */
 .footer {
-    background: #2c5530;
+    background: linear-gradient(135deg, var(--primary-pink), var(--primary-blue));
     color: white;
     padding: 3rem 0 1rem;
 }
@@ -776,9 +792,86 @@ section {
 
 /* Active navigation link */
 .nav-link.active {
-    color: #2c5530;
+    color: var(--primary-pink);
 }
 
 .nav-link.active::after {
     width: 100%;
+}
+
+/* Booking Section */
+.booking {
+    background: linear-gradient(135deg, var(--primary-pink), var(--primary-teal));
+    color: white;
+}
+
+.booking .section-title {
+    color: white;
+}
+
+.booking .section-subtitle {
+    color: rgba(255, 255, 255, 0.9);
+}
+
+.booking-form {
+    max-width: 600px;
+    margin: 0 auto;
+    background: rgba(255, 255, 255, 0.1);
+    padding: 3rem;
+    border-radius: 20px;
+    backdrop-filter: blur(10px);
+}
+
+.form-group {
+    margin-bottom: 1.5rem;
+}
+
+.form-group label {
+    display: block;
+    margin-bottom: 0.5rem;
+    font-weight: 600;
+    color: white;
+}
+
+.form-group input,
+.form-group select,
+.form-group textarea {
+    width: 100%;
+    padding: 12px 16px;
+    border: none;
+    border-radius: 10px;
+    background: rgba(255, 255, 255, 0.9);
+    font-family: 'Poppins', sans-serif;
+    font-size: 1rem;
+    transition: all 0.3s ease;
+}
+
+.form-group input:focus,
+.form-group select:focus,
+.form-group textarea:focus {
+    outline: none;
+    background: white;
+    box-shadow: 0 0 20px rgba(255, 255, 255, 0.3);
+}
+
+.form-row {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 1rem;
+}
+
+.btn-submit {
+    background: white;
+    color: var(--primary-pink);
+    font-weight: 700;
+    font-size: 1.1rem;
+    padding: 15px 40px;
+    width: 100%;
+    margin-top: 1rem;
+}
+
+.btn-submit:hover {
+    background: rgba(255, 255, 255, 0.9);
+    transform: translateY(-2px);
+    box-shadow: 0 10px 30px rgba(255, 255, 255, 0.3);
 }
