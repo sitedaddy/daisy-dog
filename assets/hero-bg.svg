@@ -1,0 +1,57 @@
+<svg width="1920" height="1080" viewBox="0 0 1920 1080" fill="none" xmlns="http://www.w3.org/2000/svg">
+    <!-- Background gradient -->
+    <defs>
+        <linearGradient id="bgGradient" x1="0%" y1="0%" x2="100%" y2="100%">
+            <stop offset="0%" style="stop-color:#f8f9fa;stop-opacity:1" />
+            <stop offset="100%" style="stop-color:#e9ecef;stop-opacity:1" />
+        </linearGradient>
+        <pattern id="pawPattern" x="0" y="0" width="200" height="200" patternUnits="userSpaceOnUse">
+            <circle cx="50" cy="50" r="8" fill="#2c5530" opacity="0.05"/>
+            <circle cx="30" cy="35" r="5" fill="#2c5530" opacity="0.05"/>
+            <circle cx="70" cy="35" r="5" fill="#2c5530" opacity="0.05"/>
+            <circle cx="35" cy="70" r="4" fill="#2c5530" opacity="0.05"/>
+            <circle cx="65" cy="70" r="4" fill="#2c5530" opacity="0.05"/>
+        </pattern>
+    </defs>
+    
+    <!-- Main background -->
+    <rect width="1920" height="1080" fill="url(#bgGradient)"/>
+    
+    <!-- Paw print pattern overlay -->
+    <rect width="1920" height="1080" fill="url(#pawPattern)"/>
+    
+    <!-- Decorative elements -->
+    <g opacity="0.1">
+        <!-- Large decorative circles -->
+        <circle cx="200" cy="200" r="100" fill="#2c5530" opacity="0.03"/>
+        <circle cx="1720" cy="300" r="150" fill="#2c5530" opacity="0.03"/>
+        <circle cx="300" cy="800" r="80" fill="#2c5530" opacity="0.03"/>
+        <circle cx="1600" cy="900" r="120" fill="#2c5530" opacity="0.03"/>
+        
+        <!-- Organic shapes -->
+        <path d="M100 400 Q300 350 500 400 T900 400 Q1100 450 1300 400" stroke="#2c5530" stroke-width="2" fill="none" opacity="0.05"/>
+        <path d="M200 600 Q400 550 600 600 T1000 600 Q1200 650 1400 600" stroke="#2c5530" stroke-width="2" fill="none" opacity="0.05"/>
+    </g>
+    
+    <!-- Pet silhouettes -->
+    <g opacity="0.08" fill="#2c5530">
+        <!-- Dog silhouette -->
+        <path d="M1500 400 Q1520 380 1540 400 Q1560 390 1580 410 Q1590 430 1580 450 Q1570 470 1550 480 Q1530 485 1510 480 Q1490 470 1485 450 Q1480 430 1500 400Z"/>
+        
+        <!-- Cat silhouette -->
+        <path d="M400 700 Q420 680 440 700 Q460 690 480 710 Q490 730 480 750 Q470 770 450 780 Q430 785 410 780 Q390 770 385 750 Q380 730 400 700Z"/>
+        
+        <!-- Small decorative paws -->
+        <circle cx="800" cy="200" r="3"/>
+        <circle cx="790" cy="190" r="2"/>
+        <circle cx="810" cy="190" r="2"/>
+        <circle cx="795" cy="210" r="1.5"/>
+        <circle cx="805" cy="210" r="1.5"/>
+        
+        <circle cx="1200" cy="800" r="3"/>
+        <circle cx="1190" cy="790" r="2"/>
+        <circle cx="1210" cy="790" r="2"/>
+        <circle cx="1195" cy="810" r="1.5"/>
+        <circle cx="1205" cy="810" r="1.5"/>
+    </g>
+</svg>
