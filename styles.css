@@ -17,15 +17,17 @@ body {
     overflow-x: hidden;
 }
 
-/* Updated color variables based on new logo */
+/* Professional color palette */
 :root {
-    --primary-pink: #E91E63;
-    --primary-blue: #2196F3;
-    --primary-teal: #00BCD4;
+    --primary-green: #2c5530;
+    --accent-blue: #4a90a4;
+    --warm-beige: #f5f2e8;
+    --soft-cream: #faf8f3;
     --text-dark: #333333;
     --text-light: #666666;
     --background-light: #f8f9fa;
     --white: #ffffff;
+    --gold-accent: #d4af37;
 }
 
 /* Container */
@@ -82,7 +84,7 @@ body {
 }
 
 .nav-link:hover {
-    color: var(--primary-pink);
+    color: var(--primary-green);
 }
 
 .nav-link::after {
@@ -92,7 +94,7 @@ body {
     left: 0;
     width: 0;
     height: 2px;
-    background: var(--primary-pink);
+    background: var(--primary-green);
     transition: width 0.3s ease;
 }
 
@@ -150,7 +152,7 @@ body {
 .hero-title {
     font-size: 3.5rem;
     font-weight: 700;
-    color: var(--primary-pink);
+    color: var(--primary-green);
     margin-bottom: 1rem;
     line-height: 1.2;
 }
@@ -184,42 +186,42 @@ body {
 }
 
 .btn-primary {
-    background: linear-gradient(135deg, var(--primary-pink), var(--primary-teal));
+    background: var(--primary-green);
     color: white;
 }
 
 .btn-primary:hover {
-    background: linear-gradient(135deg, #c2185b, #0097a7);
+    background: #1e3a21;
     transform: translateY(-2px);
-    box-shadow: 0 8px 25px rgba(233, 30, 99, 0.3);
+    box-shadow: 0 8px 25px rgba(44, 85, 48, 0.3);
 }
 
 .btn-secondary {
     background: transparent;
-    color: var(--primary-pink);
-    border-color: var(--primary-pink);
+    color: var(--primary-green);
+    border-color: var(--primary-green);
 }
 
 .btn-secondary:hover {
-    background: var(--primary-pink);
+    background: var(--primary-green);
     color: white;
     transform: translateY(-2px);
-    box-shadow: 0 8px 25px rgba(233, 30, 99, 0.3);
+    box-shadow: 0 8px 25px rgba(44, 85, 48, 0.3);
 }
 
 .btn-outline {
     background: transparent;
-    color: var(--primary-pink);
-    border: 2px solid var(--primary-pink);
+    color: var(--primary-green);
+    border: 2px solid var(--primary-green);
 }
 
 .btn-outline:hover {
-    background: var(--primary-pink);
+    background: var(--primary-green);
     color: white;
 }
 
 .btn-booking {
-    background: linear-gradient(135deg, var(--primary-blue), var(--primary-teal));
+    background: var(--accent-blue);
     color: white;
     padding: 8px 20px;
     font-size: 0.9rem;
@@ -227,9 +229,9 @@ body {
 }
 
 .btn-booking:hover {
-    background: linear-gradient(135deg, #1976d2, #0097a7);
+    background: #3a7a8a;
     transform: translateY(-2px);
-    box-shadow: 0 6px 20px rgba(33, 150, 243, 0.3);
+    box-shadow: 0 6px 20px rgba(74, 144, 164, 0.3);
 }
 
 /* Section Styles */
@@ -245,7 +247,7 @@ section {
 .section-title {
     font-size: 2.5rem;
     font-weight: 700;
-    color: var(--primary-pink);
+    color: var(--primary-green);
     margin-bottom: 1rem;
 }
 
@@ -268,7 +270,7 @@ section {
 
 .about-text h3 {
     font-size: 1.5rem;
-    color: var(--primary-pink);
+    color: var(--primary-green);
     margin-bottom: 1rem;
     margin-top: 2rem;
 }
@@ -305,13 +307,13 @@ section {
 
 .feature i {
     font-size: 2.5rem;
-    color: var(--primary-pink);
+    color: var(--primary-green);
     margin-bottom: 1rem;
 }
 
 .feature h4 {
     font-size: 1.2rem;
-    color: var(--primary-pink);
+    color: var(--primary-green);
     margin-bottom: 0.5rem;
 }
 
@@ -334,7 +336,7 @@ section {
     box-shadow: 0 5px 30px rgba(0, 0, 0, 0.1);
     text-align: center;
     transition: all 0.3s ease;
-    border-top: 4px solid var(--primary-pink);
+    border-top: 4px solid var(--primary-green);
 }
 
 .service-card:hover {
@@ -345,7 +347,7 @@ section {
 .service-icon {
     width: 80px;
     height: 80px;
-    background: linear-gradient(135deg, var(--primary-pink), var(--primary-teal));
+    background: linear-gradient(135deg, var(--primary-green), var(--accent-blue));
     border-radius: 50%;
     display: flex;
     align-items: center;
