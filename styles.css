@@ -201,7 +201,7 @@ body {
     display: flex;
     justify-content: center;
     align-items: center;
-    margin-bottom: -40px;
+    margin-bottom: -60px;
     z-index: 2;
     position: relative;
 }
@@ -817,12 +817,12 @@ section {
     }
     
     .hero-logo {
-        width: 200px;
-        height: 200px;
+        width: 300px;
+        height: 300px;
     }
     
     .hero-logo-container {
-        margin-bottom: -30px;
+        margin-bottom: -45px;
     }
     
     .hero-title {
@@ -879,12 +879,12 @@ section {
     }
     
     .hero-logo {
-        width: 180px;
-        height: 180px;
+        width: 250px;
+        height: 250px;
     }
     
     .hero-logo-container {
-        margin-bottom: -25px;
+        margin-bottom: -35px;
     }
     
     .hero-title {
