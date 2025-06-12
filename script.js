@@ -175,9 +175,10 @@ function loadGoogleReviews() {
 async function fetchPlaceReviews() {
     try {
         // Use backend API proxy to fetch real Google reviews
-        const response = await fetch(
-            "https://https://google-reviews-api-dray86.replit.app/reviews?place_id=ChIJ4awl5Vxr1GoRMqAvH9ef19E",
-        );
+        const apiUrl = window.location.hostname === 'localhost' ? 
+            'http://localhost:8080/api/reviews' : 
+            `${window.location.protocol}//${window.location.hostname}:8080/api/reviews`;
+        const response = await fetch(apiUrl);
 
         if (response.ok) {
             return await response.json();
