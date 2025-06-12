@@ -1,0 +1,36 @@
+{
+  "businessName": "Daisy Dog Pet Grooming",
+  "address": "16 Blossom Ave, Mount Duneed VIC 3217, Australia",
+  "phone": "0422 535 366",
+  "googlePlaceId": "ChIJuXPUd1i712oRN1eR-J82Or4",
+  "rating": 5.0,
+  "totalReviews": 17,
+  "businessHours": {
+    "monday": "9:00 AM – 4:00 PM",
+    "tuesday": "9:00 AM – 4:00 PM", 
+    "wednesday": "9:00 AM – 4:00 PM",
+    "thursday": "9:00 AM – 4:00 PM",
+    "friday": "9:00 AM – 4:00 PM",
+    "saturday": "9:00 AM – 4:00 PM",
+    "sunday": "Closed"
+  },
+  "logo": "assets/daisy-dog-logo.png",
+  "socialMedia": {
+    "facebook": "https://www.facebook.com/DaisyDogPetGrooming/",
+    "instagram": "https://www.instagram.com/daisydog.pg/"
+  },
+  "services": [
+    "Full Service Dog Grooming",
+    "Nail Trimming",
+    "Ear Cleaning",
+    "Bathing & Blow Drying",
+    "Breed-Specific Cuts",
+    "De-shedding Treatments"
+  ],
+  "about": "At Daisy Dog Pet Grooming, we provide professional grooming services with a personal touch. Michelle, our experienced groomer, is known for her patience, kindness, and exceptional attention to detail. We create a stress-free environment where your beloved pets receive the best care possible.",
+  "colorScheme": {
+    "primary": "#1e3a8a",
+    "secondary": "#f3e8ff",
+    "accent": "#8b5cf6"
+  }
+}

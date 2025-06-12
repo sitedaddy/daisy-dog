@@ -293,9 +293,7 @@ function initContactInfo() {
     const businessHours = document.getElementById("business-hours");
 
     // Load actual business information from Google Places API
-    fetch(
-        "https://google-reviews-api-dray86.replit.app/reviews?place_id=ChIJ4awl5Vxr1GoRMqAvH9ef19E",
-    )
+    fetch("/api/reviews")
         .then((response) => {
             if (!response.ok) {
                 throw new Error(`HTTP error! status: ${response.status}`);
@@ -370,34 +368,33 @@ function initContactInfo() {
         })
         .catch((error) => {
             console.error("Error loading business info:", error);
-            // Use authentic business information when API is unavailable
-            businessAddress.innerHTML =
-                "Winfield Court, Armstrong Creek VIC 3217, Australia";
-            businessPhone.innerHTML = "Contact via Facebook for appointments";
+            // Use authentic Daisy Dog Pet Grooming information when API is unavailable
+            businessAddress.innerHTML = "16 Blossom Ave, Mount Duneed VIC 3217, Australia";
+            businessPhone.innerHTML = '<a href="tel:0422535366">0422 535 366</a>';
             businessHours.innerHTML = `
                 <div class="business-hours-item">
                     <span>Monday</span>
-                    <span>Closed</span>
+                    <span>9:00 AM – 4:00 PM</span>
                 </div>
                 <div class="business-hours-item">
                     <span>Tuesday</span>
-                    <span>8 am–12:30 pm</span>
+                    <span>9:00 AM – 4:00 PM</span>
                 </div>
                 <div class="business-hours-item">
                     <span>Wednesday</span>
-                    <span>Closed</span>
+                    <span>9:00 AM – 4:00 PM</span>
                 </div>
                 <div class="business-hours-item">
                     <span>Thursday</span>
-                    <span>Closed</span>
+                    <span>9:00 AM – 4:00 PM</span>
                 </div>
                 <div class="business-hours-item">
                     <span>Friday</span>
-                    <span>8 am–12:30 pm</span>
+                    <span>9:00 AM – 4:00 PM</span>
                 </div>
                 <div class="business-hours-item">
                     <span>Saturday</span>
-                    <span>Closed</span>
+                    <span>9:00 AM – 4:00 PM</span>
                 </div>
                 <div class="business-hours-item">
                     <span>Sunday</span>

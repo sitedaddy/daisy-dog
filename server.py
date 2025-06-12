@@ -54,8 +54,8 @@ class WebHandler(BaseHTTPRequestHandler):
     
     def handle_reviews_request(self):
         try:
-            # Fetch22 Pet Styling Place ID
-            place_id = "ChIJ4awl5Vxr1GoRMqAvH9ef19E"
+            # Daisy Dog Pet Grooming Place ID
+            place_id = "ChIJuXPUd1i712oRN1eR-J82Or4"
             api_key = os.environ.get('GOOGLE_PLACES_API_KEY')
             
             if not api_key:
@@ -87,7 +87,7 @@ class WebHandler(BaseHTTPRequestHandler):
     
     def handle_place_request(self):
         try:
-            place_id = "ChIJ4awl5Vxr1GoRMqAvH9ef19E"
+            place_id = "ChIJuXPUd1i712oRN1eR-J82Or4"
             api_key = os.environ.get('GOOGLE_PLACES_API_KEY')
             
             if not api_key:
