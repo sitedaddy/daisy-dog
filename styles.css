@@ -157,18 +157,20 @@ body {
 .hero-title {
     font-size: 3.5rem;
     font-weight: 700;
-    color: var(--primary-green);
+    color: white;
     margin-bottom: 1rem;
     line-height: 1.2;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
 }
 
 .hero-subtitle {
     font-size: 1.25rem;
-    color: #666;
+    color: rgba(255, 255, 255, 0.9);
     margin-bottom: 2rem;
     max-width: 600px;
     margin-left: auto;
     margin-right: auto;
+    text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.2);
 }
 
 .hero-buttons {
@@ -203,15 +205,15 @@ body {
 
 .btn-secondary {
     background: transparent;
-    color: var(--primary-green);
-    border-color: var(--primary-green);
+    color: var(--thistle);
+    border-color: var(--thistle);
 }
 
 .btn-secondary:hover {
-    background: var(--primary-green);
+    background: var(--thistle);
     color: white;
     transform: translateY(-2px);
-    box-shadow: 0 8px 25px rgba(44, 85, 48, 0.3);
+    box-shadow: 0 8px 25px rgba(205, 180, 219, 0.4);
 }
 
 .btn-outline {
@@ -252,7 +254,7 @@ section {
 .section-title {
     font-size: 2.5rem;
     font-weight: 700;
-    color: var(--primary-green);
+    color: var(--thistle);
     margin-bottom: 1rem;
 }
 
@@ -841,7 +843,7 @@ section {
 
 /* Booking Section */
 .booking {
-    background: linear-gradient(135deg, var(--primary-green), var(--accent-blue));
+    background: linear-gradient(135deg, var(--thistle), var(--light-sky-blue));
     color: white;
 }
 
