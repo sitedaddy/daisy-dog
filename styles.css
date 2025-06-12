@@ -563,7 +563,8 @@ section {
     background: white;
     padding: 2rem;
     border-radius: 15px;
-    box-shadow: 0 5px 20px rgba(0, 0, 0, 0.1);
+    box-shadow: 0 5px 20px rgba(45, 57, 96, 0.08);
+    border-left: 4px solid var(--brand-pink-medium);
 }
 
 .review-header {
@@ -576,7 +577,7 @@ section {
 .reviewer-avatar {
     width: 50px;
     height: 50px;
-    background: #2c5530;
+    background: var(--brand-navy-dark);
     border-radius: 50%;
     display: flex;
     align-items: center;
@@ -587,12 +588,12 @@ section {
 }
 
 .reviewer-info h4 {
-    color: #333;
+    color: var(--brand-navy-deep);
     margin-bottom: 0.2rem;
 }
 
 .review-date {
-    color: #888;
+    color: var(--brand-slate);
     font-size: 0.9rem;
 }
 
@@ -601,20 +602,20 @@ section {
 }
 
 .review-text {
-    color: #666;
+    color: var(--brand-slate);
     line-height: 1.6;
 }
 
 .loading-message {
     text-align: center;
-    color: #666;
+    color: var(--brand-slate);
     grid-column: 1 / -1;
 }
 
 .loading-message i {
     font-size: 2rem;
     margin-bottom: 1rem;
-    color: #2c5530;
+    color: var(--brand-navy-dark);
 }
 
 .reviews-footer {
@@ -631,7 +632,7 @@ section {
 
 .contact-info h3 {
     font-size: 1.8rem;
-    color: #2c5530;
+    color: var(--brand-navy-dark);
     margin-bottom: 2rem;
 }
 
@@ -649,20 +650,20 @@ section {
 
 .contact-item i {
     font-size: 1.5rem;
-    color: #2c5530;
+    color: var(--brand-navy-dark);
     margin-top: 0.2rem;
     width: 24px;
 }
 
 .contact-item h4 {
-    color: var(--primary-green);
+    color: var(--brand-navy-dark);
     margin-bottom: 0.5rem;
     font-size: 1.1rem;
 }
 
 .contact-item p,
 .contact-item a {
-    color: #666;
+    color: var(--brand-slate);
     margin: 0;
     line-height: 1.5;
 }
@@ -673,7 +674,7 @@ section {
 }
 
 .contact-item a:hover {
-    color: var(--primary-green);
+    color: var(--brand-navy-dark);
 }
 
 .business-hours-item {
@@ -684,8 +685,8 @@ section {
     margin-bottom: 0.5rem;
     background: var(--white);
     border-radius: 8px;
-    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
-    border-left: 4px solid var(--accent-blue);
+    box-shadow: 0 2px 4px rgba(45, 57, 96, 0.05);
+    border-left: 4px solid var(--brand-pink-medium);
 }
 
 .business-hours-item:last-child {
@@ -707,7 +708,7 @@ section {
     height: 400px;
     border-radius: 15px;
     overflow: hidden;
-    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+    box-shadow: 0 10px 30px rgba(45, 57, 96, 0.1);
 }
 
 .map-container iframe {
@@ -716,7 +717,7 @@ section {
 
 /* Footer */
 .footer {
-    background: var(--primary-green);
+    background: var(--brand-navy-dark);
     color: white;
     padding: 3rem 0 1rem;
 }
