@@ -1,5 +1,5 @@
 // DOM Content Loaded
-document.addEventListener('DOMContentLoaded', function() {
+document.addEventListener("DOMContentLoaded", function () {
     // Initialize all functionality
     initNavigation();
     initSmoothScroll();
@@ -11,45 +11,45 @@ document.addEventListener('DOMContentLoaded', function() {
 
 // Navigation functionality
 function initNavigation() {
-    const hamburger = document.getElementById('hamburger');
-    const navMenu = document.getElementById('nav-menu');
-    const navLinks = document.querySelectorAll('.nav-link');
-    
+    const hamburger = document.getElementById("hamburger");
+    const navMenu = document.getElementById("nav-menu");
+    const navLinks = document.querySelectorAll(".nav-link");
+
     // Mobile menu toggle
-    hamburger.addEventListener('click', function() {
-        hamburger.classList.toggle('active');
-        navMenu.classList.toggle('active');
+    hamburger.addEventListener("click", function () {
+        hamburger.classList.toggle("active");
+        navMenu.classList.toggle("active");
     });
-    
+
     // Close mobile menu when clicking on a link
-    navLinks.forEach(link => {
-        link.addEventListener('click', function() {
-            hamburger.classList.remove('active');
-            navMenu.classList.remove('active');
+    navLinks.forEach((link) => {
+        link.addEventListener("click", function () {
+            hamburger.classList.remove("active");
+            navMenu.classList.remove("active");
         });
     });
-    
+
     // Update active navigation link on scroll
-    window.addEventListener('scroll', updateActiveNavLink);
+    window.addEventListener("scroll", updateActiveNavLink);
 }
 
 // Smooth scrolling functionality
 function initSmoothScroll() {
-    const navLinks = document.querySelectorAll('.nav-link');
-    
-    navLinks.forEach(link => {
-        link.addEventListener('click', function(e) {
+    const navLinks = document.querySelectorAll(".nav-link");
+
+    navLinks.forEach((link) => {
+        link.addEventListener("click", function (e) {
             e.preventDefault();
-            
-            const targetId = this.getAttribute('href').substring(1);
+
+            const targetId = this.getAttribute("href").substring(1);
             const targetSection = document.getElementById(targetId);
-            
+
             if (targetSection) {
                 const offsetTop = targetSection.offsetTop - 80; // Account for fixed navbar
-                
+
                 window.scrollTo({
                     top: offsetTop,
-                    behavior: 'smooth'
+                    behavior: "smooth",
                 });
             }
         });
@@ -58,24 +58,27 @@ function initSmoothScroll() {
 
 // Update active navigation link based on scroll position
 function updateActiveNavLink() {
-    const sections = document.querySelectorAll('section');
-    const navLinks = document.querySelectorAll('.nav-link');
-    
-    let currentSection = '';
-    
-    sections.forEach(section => {
+    const sections = document.querySelectorAll("section");
+    const navLinks = document.querySelectorAll(".nav-link");
+
+    let currentSection = "";
+
+    sections.forEach((section) => {
         const sectionTop = section.offsetTop - 100;
         const sectionHeight = section.clientHeight;
-        
-        if (window.pageYOffset >= sectionTop && window.pageYOffset < sectionTop + sectionHeight) {
-            currentSection = section.getAttribute('id');
+
+        if (
+            window.pageYOffset >= sectionTop &&
+            window.pageYOffset < sectionTop + sectionHeight
+        ) {
+            currentSection = section.getAttribute("id");
         }
     });
-    
-    navLinks.forEach(link => {
-        link.classList.remove('active');
-        if (link.getAttribute('href') === `#${currentSection}`) {
-            link.classList.add('active');
+
+    navLinks.forEach((link) => {
+        link.classList.remove("active");
+        if (link.getAttribute("href") === `#${currentSection}`) {
+            link.classList.add("active");
         }
     });
 }
@@ -84,10 +87,10 @@ function updateActiveNavLink() {
 function initReviews() {
     // Since we can't directly access Google Maps API without setup,
     // we'll create a system that can be easily integrated with real reviews
-    const reviewsContainer = document.getElementById('reviews-container');
-    const overallRating = document.getElementById('overall-rating');
-    const overallStars = document.getElementById('overall-stars');
-    
+    const reviewsContainer = document.getElementById("reviews-container");
+    const overallRating = document.getElementById("overall-rating");
+    const overallStars = document.getElementById("overall-stars");
+
     // Simulate loading state (replace with actual API call)
     setTimeout(() => {
         loadGoogleReviews();
@@ -96,39 +99,49 @@ function initReviews() {
 
 // Load Google Reviews from Places API
 function loadGoogleReviews() {
-    const reviewsContainer = document.getElementById('reviews-container');
-    const overallRating = document.getElementById('overall-rating');
-    const overallStars = document.getElementById('overall-stars');
-    
+    const reviewsContainer = document.getElementById("reviews-container");
+    const overallRating = document.getElementById("overall-rating");
+    const overallStars = document.getElementById("overall-stars");
+
     // Fetch reviews using Google Places API
     fetchPlaceReviews()
-        .then(data => {
+        .then((data) => {
             if (data && data.result) {
                 const place = data.result;
-                
+
                 // Update overall rating
                 const rating = place.rating || 0;
                 const reviewCount = place.user_ratings_total || 0;
-                
+
                 overallRating.textContent = `${rating} (${reviewCount} reviews)`;
                 // Clear existing content and safely append star rating
-                overallStars.textContent = '';
+                overallStars.textContent = "";
                 const starHTML = createStarRating(rating);
-                const tempDiv = document.createElement('div');
+                const tempDiv = document.createElement("div");
                 tempDiv.innerHTML = starHTML;
                 while (tempDiv.firstChild) {
                     overallStars.appendChild(tempDiv.firstChild);
                 }
-                
+
                 // Display reviews (filter to show only positive reviews)
                 if (place.reviews && place.reviews.length > 0) {
-                    const positiveReviews = place.reviews.filter(review => review.rating >= 4);
-                    
-                    const reviewsHTML = positiveReviews.slice(0, 6).map(review => {
-                        const reviewDate = new Date(review.time * 1000).toLocaleDateString();
-                        const initials = review.author_name.split(' ').map(n => n[0]).join('').toUpperCase();
-                        
-                        return `
+                    const positiveReviews = place.reviews.filter(
+                        (review) => review.rating >= 4,
+                    );
+
+                    const reviewsHTML = positiveReviews
+                        .slice(0, 6)
+                        .map((review) => {
+                            const reviewDate = new Date(
+                                review.time * 1000,
+                            ).toLocaleDateString();
+                            const initials = review.author_name
+                                .split(" ")
+                                .map((n) => n[0])
+                                .join("")
+                                .toUpperCase();
+
+                            return `
                             <div class="review-card">
                                 <div class="review-header">
                                     <div class="reviewer-avatar">${initials}</div>
@@ -141,19 +154,20 @@ function loadGoogleReviews() {
                                 <p class="review-text">${review.text}</p>
                             </div>
                         `;
-                    }).join('');
-                    
+                        })
+                        .join("");
+
                     reviewsContainer.innerHTML = reviewsHTML;
                 } else {
-                    showReviewsError('No reviews available');
+                    showReviewsError("No reviews available");
                 }
             } else {
-                showReviewsError('Unable to load reviews');
+                showReviewsError("Unable to load reviews");
             }
         })
-        .catch(error => {
-            console.error('Error loading reviews:', error);
-            showReviewsError('Error loading reviews');
+        .catch((error) => {
+            console.error("Error loading reviews:", error);
+            showReviewsError("Error loading reviews");
         });
 }
 
@@ -161,15 +175,17 @@ function loadGoogleReviews() {
 async function fetchPlaceReviews() {
     try {
         // Use backend API proxy to fetch real Google reviews
-        const response = await fetch('http://localhost:8080/api/reviews');
-        
+        const response = await fetch(
+            "https://your-replit-app.replit.app/reviews?place_id=ChIJ4awl5Vxr1GoRMqAvH9ef19E",
+        );
+
         if (response.ok) {
             return await response.json();
         } else {
             throw new Error(`API request failed: ${response.status}`);
         }
     } catch (error) {
-        console.error('Places API error:', error);
+        console.error("Places API error:", error);
         // Fallback to sample data if API is not available
         return getSampleReviewsData();
     }
@@ -192,46 +208,46 @@ function getSampleReviewsData() {
                     author_name: "Sarah Johnson",
                     rating: 5,
                     text: "Absolutely amazing service! My golden retriever looks fantastic after his grooming session. The staff are so gentle and caring with the animals. Highly recommend!",
-                    time: Date.now() / 1000 - 86400 * 7
+                    time: Date.now() / 1000 - 86400 * 7,
                 },
                 {
                     author_name: "Mark Thompson",
                     rating: 5,
                     text: "Best pet grooming in the area! Professional, affordable, and my dog actually enjoys going there. The new haircut looks perfect!",
-                    time: Date.now() / 1000 - 86400 * 14
+                    time: Date.now() / 1000 - 86400 * 14,
                 },
                 {
                     author_name: "Emma Wilson",
                     rating: 5,
                     text: "Five stars! They did an incredible job with my poodle's grooming. Very clean facility and the staff clearly love animals. Will definitely be back!",
-                    time: Date.now() / 1000 - 86400 * 21
+                    time: Date.now() / 1000 - 86400 * 21,
                 },
                 {
                     author_name: "David Chen",
                     rating: 4,
                     text: "Great experience overall. Professional service and reasonable prices. My dog was nervous but they handled him with such care and patience.",
-                    time: Date.now() / 1000 - 86400 * 30
+                    time: Date.now() / 1000 - 86400 * 30,
                 },
                 {
                     author_name: "Lisa Rodriguez",
                     rating: 5,
                     text: "Outstanding! They transformed my scruffy rescue dog into a beautiful, clean pup. The attention to detail is impressive. Thank you!",
-                    time: Date.now() / 1000 - 86400 * 45
+                    time: Date.now() / 1000 - 86400 * 45,
                 },
                 {
                     author_name: "James Mitchell",
                     rating: 5,
                     text: "Excellent service and very professional. My cat needed a special shampoo for sensitive skin and they handled it perfectly. Highly recommend!",
-                    time: Date.now() / 1000 - 86400 * 60
-                }
-            ]
-        }
+                    time: Date.now() / 1000 - 86400 * 60,
+                },
+            ],
+        },
     };
 }
 
 // Show error message for reviews
 function showReviewsError(message) {
-    const reviewsContainer = document.getElementById('reviews-container');
+    const reviewsContainer = document.getElementById("reviews-container");
     reviewsContainer.innerHTML = `
         <div class="review-error">
             <i class="fas fa-exclamation-triangle"></i>
@@ -248,24 +264,24 @@ function createStarRating(rating) {
     const fullStars = Math.floor(rating);
     const hasHalfStar = rating % 1 !== 0;
     const emptyStars = 5 - fullStars - (hasHalfStar ? 1 : 0);
-    
-    let starsHTML = '';
-    
+
+    let starsHTML = "";
+
     // Full stars
     for (let i = 0; i < fullStars; i++) {
         starsHTML += '<i class="fas fa-star star"></i>';
     }
-    
+
     // Half star
     if (hasHalfStar) {
         starsHTML += '<i class="fas fa-star-half-alt star"></i>';
     }
-    
+
     // Empty stars
     for (let i = 0; i < emptyStars; i++) {
         starsHTML += '<i class="far fa-star star empty"></i>';
     }
-    
+
     return starsHTML;
 }
 
@@ -273,45 +289,51 @@ function createStarRating(rating) {
 function initContactInfo() {
     // This would normally fetch data from Google Maps API
     // For now, setting up the structure for easy integration
-    
-    const businessAddress = document.getElementById('business-address');
-    const businessPhone = document.getElementById('business-phone');
-    const businessHours = document.getElementById('business-hours');
-    
+
+    const businessAddress = document.getElementById("business-address");
+    const businessPhone = document.getElementById("business-phone");
+    const businessHours = document.getElementById("business-hours");
+
     // Load actual business information from Google Places API
-    fetch('http://localhost:8080/api/place')
-        .then(response => {
+    fetch(
+        "https://google-reviews-api-dray86.replit.app/reviews?place_id=ChIJ4awl5Vxr1GoRMqAvH9ef19E",
+    )
+        .then((response) => {
             if (!response.ok) {
                 throw new Error(`HTTP error! status: ${response.status}`);
             }
             return response.json();
         })
-        .then(data => {
+        .then((data) => {
             if (data && data.result) {
                 const place = data.result;
-                
+
                 // Update address
-                businessAddress.innerHTML = place.formatted_address || 'Address not available';
-                
+                businessAddress.innerHTML =
+                    place.formatted_address || "Address not available";
+
                 // Update phone (if available)
                 if (place.formatted_phone_number) {
                     const phoneNumber = place.formatted_phone_number;
-                    businessPhone.innerHTML = `<a href="tel:${phoneNumber.replace(/\s/g, '')}">${phoneNumber}</a>`;
+                    businessPhone.innerHTML = `<a href="tel:${phoneNumber.replace(/\s/g, "")}">${phoneNumber}</a>`;
                 } else {
-                    businessPhone.innerHTML = 'Contact via Facebook for phone number';
+                    businessPhone.innerHTML =
+                        "Contact via Facebook for phone number";
                 }
-                
+
                 // Update business hours
                 if (place.opening_hours && place.opening_hours.weekday_text) {
-                    const hoursHTML = place.opening_hours.weekday_text.map(dayHours => {
-                        const [day, hours] = dayHours.split(': ');
-                        return `
+                    const hoursHTML = place.opening_hours.weekday_text
+                        .map((dayHours) => {
+                            const [day, hours] = dayHours.split(": ");
+                            return `
                             <div class="business-hours-item">
                                 <span>${day}</span>
                                 <span>${hours}</span>
                             </div>
                         `;
-                    }).join('');
+                        })
+                        .join("");
                     businessHours.innerHTML = hoursHTML;
                 } else {
                     // Updated hours based on current schedule
@@ -348,11 +370,12 @@ function initContactInfo() {
                 }
             }
         })
-        .catch(error => {
-            console.error('Error loading business info:', error);
+        .catch((error) => {
+            console.error("Error loading business info:", error);
             // Use authentic business information when API is unavailable
-            businessAddress.innerHTML = 'Winfield Court, Armstrong Creek VIC 3217, Australia';
-            businessPhone.innerHTML = 'Contact via Facebook for appointments';
+            businessAddress.innerHTML =
+                "Winfield Court, Armstrong Creek VIC 3217, Australia";
+            businessPhone.innerHTML = "Contact via Facebook for appointments";
             businessHours.innerHTML = `
                 <div class="business-hours-item">
                     <span>Monday</span>
@@ -390,25 +413,27 @@ function initContactInfo() {
 function initScrollAnimations() {
     const observerOptions = {
         threshold: 0.1,
-        rootMargin: '0px 0px -50px 0px'
+        rootMargin: "0px 0px -50px 0px",
     };
-    
-    const observer = new IntersectionObserver(function(entries) {
-        entries.forEach(entry => {
+
+    const observer = new IntersectionObserver(function (entries) {
+        entries.forEach((entry) => {
             if (entry.isIntersecting) {
-                entry.target.classList.add('fade-in');
+                entry.target.classList.add("fade-in");
             }
         });
     }, observerOptions);
-    
+
     // Observe elements for animation
-    const animateElements = document.querySelectorAll('.service-card, .feature, .review-card, .contact-item');
-    animateElements.forEach(el => observer.observe(el));
+    const animateElements = document.querySelectorAll(
+        ".service-card, .feature, .review-card, .contact-item",
+    );
+    animateElements.forEach((el) => observer.observe(el));
 }
 
 // Utility function to format phone numbers
 function formatPhoneNumber(phone) {
-    const cleaned = phone.replace(/\D/g, '');
+    const cleaned = phone.replace(/\D/g, "");
     const match = cleaned.match(/^(\d{3})(\d{3})(\d{4})$/);
     if (match) {
         return `(${match[1]}) ${match[2]}-${match[3]}`;
@@ -417,24 +442,24 @@ function formatPhoneNumber(phone) {
 }
 
 // Handle window resize
-window.addEventListener('resize', function() {
+window.addEventListener("resize", function () {
     // Close mobile menu on resize to desktop
     if (window.innerWidth > 768) {
-        const hamburger = document.getElementById('hamburger');
-        const navMenu = document.getElementById('nav-menu');
-        
-        hamburger.classList.remove('active');
-        navMenu.classList.remove('active');
+        const hamburger = document.getElementById("hamburger");
+        const navMenu = document.getElementById("nav-menu");
+
+        hamburger.classList.remove("active");
+        navMenu.classList.remove("active");
     }
 });
 
 // Navbar background change on scroll
-window.addEventListener('scroll', function() {
-    const navbar = document.getElementById('navbar');
+window.addEventListener("scroll", function () {
+    const navbar = document.getElementById("navbar");
     if (window.scrollY > 100) {
-        navbar.style.background = 'rgba(255, 255, 255, 0.98)';
+        navbar.style.background = "rgba(255, 255, 255, 0.98)";
     } else {
-        navbar.style.background = 'rgba(255, 255, 255, 0.95)';
+        navbar.style.background = "rgba(255, 255, 255, 0.95)";
     }
 });
 
@@ -446,84 +471,93 @@ function loadGoogleMapsData() {
     // 2. Load reviews from Google Maps
     // 3. Update the map embed with correct coordinates
     // 4. Populate contact information
-    
-    console.log('Google Maps API integration ready');
+
+    console.log("Google Maps API integration ready");
 }
 
 // Initialize booking form functionality
 function initBookingForm() {
-    const bookingForm = document.getElementById('booking-form');
-    const dateInput = document.getElementById('preferred-date');
-    const timeSelect = document.getElementById('preferred-time');
-    
+    const bookingForm = document.getElementById("booking-form");
+    const dateInput = document.getElementById("preferred-date");
+    const timeSelect = document.getElementById("preferred-time");
+
     // Set minimum date to today
     if (dateInput) {
-        const today = new Date().toISOString().split('T')[0];
-        dateInput.setAttribute('min', today);
-        
+        const today = new Date().toISOString().split("T")[0];
+        dateInput.setAttribute("min", today);
+
         // Add event listener to validate selected date
-        dateInput.addEventListener('change', function() {
+        dateInput.addEventListener("change", function () {
             validateSelectedDate(this.value);
         });
     }
-    
+
     // Add date validation helper
     function validateSelectedDate(selectedDate) {
         if (!selectedDate) return;
-        
+
         const date = new Date(selectedDate);
         const dayOfWeek = date.getDay(); // 0 = Sunday, 1 = Monday, ..., 6 = Saturday
-        
+
         // Business is only open on Tuesday (2) and Friday (5)
         const isBusinessDay = dayOfWeek === 2 || dayOfWeek === 5;
-        
+
         if (!isBusinessDay) {
-            alert('Sorry, we are only open on Tuesdays and Fridays. Please select a different date.');
-            dateInput.value = '';
+            alert(
+                "Sorry, we are only open on Tuesdays and Fridays. Please select a different date.",
+            );
+            dateInput.value = "";
             return false;
         }
         return true;
     }
-    
+
     // Handle form submission
     if (bookingForm) {
-        bookingForm.addEventListener('submit', function(e) {
+        bookingForm.addEventListener("submit", function (e) {
             e.preventDefault();
             handleBookingSubmission();
         });
     }
-    
+
     // Handle service selection buttons
-    const serviceButtons = document.querySelectorAll('.service-card .btn-primary');
-    serviceButtons.forEach(button => {
-        button.addEventListener('click', function(e) {
+    const serviceButtons = document.querySelectorAll(
+        ".service-card .btn-primary",
+    );
+    serviceButtons.forEach((button) => {
+        button.addEventListener("click", function (e) {
             e.preventDefault();
-            
+
             // Get the service name from the card
-            const serviceCard = this.closest('.service-card');
-            const serviceName = serviceCard.querySelector('h3').textContent;
-            
+            const serviceCard = this.closest(".service-card");
+            const serviceName = serviceCard.querySelector("h3").textContent;
+
             // Set the service in the booking form
-            const serviceSelect = document.getElementById('service');
+            const serviceSelect = document.getElementById("service");
             if (serviceSelect) {
                 // Find the matching option
-                const option = Array.from(serviceSelect.options).find(opt => 
-                    opt.text.toLowerCase().includes(serviceName.toLowerCase()) ||
-                    serviceName.toLowerCase().includes(opt.text.toLowerCase())
+                const option = Array.from(serviceSelect.options).find(
+                    (opt) =>
+                        opt.text
+                            .toLowerCase()
+                            .includes(serviceName.toLowerCase()) ||
+                        serviceName
+                            .toLowerCase()
+                            .includes(opt.text.toLowerCase()),
                 );
-                
+
                 if (option) {
                     serviceSelect.value = option.value;
                 } else {
                     // If no exact match, set to "Other" and show the service name
-                    serviceSelect.value = 'other';
+                    serviceSelect.value = "other";
                 }
             }
-            
+
             // Scroll to booking section
-            document.getElementById('booking').scrollIntoView({ 
-                behavior: 'smooth',
-                block: 'start'
+            document.getElementById("booking").scrollIntoView({
+                behavior: "smooth",
+                block: "start",
             });
         });
     });
@@ -531,41 +565,41 @@ function initBookingForm() {
 
 // Handle booking form submission
 function handleBookingSubmission() {
-    const form = document.getElementById('booking-form');
+    const form = document.getElementById("booking-form");
     const formData = new FormData(form);
-    
+
     // Create booking summary
     const bookingData = {
-        petName: formData.get('pet-name'),
-        petBreed: formData.get('pet-breed'),
-        ownerName: formData.get('owner-name'),
-        phone: formData.get('phone'),
-        email: formData.get('email'),
-        service: formData.get('service'),
-        preferredDate: formData.get('preferred-date'),
-        preferredTime: formData.get('preferred-time'),
-        petSize: formData.get('pet-size'),
-        specialRequests: formData.get('special-requests')
+        petName: formData.get("pet-name"),
+        petBreed: formData.get("pet-breed"),
+        ownerName: formData.get("owner-name"),
+        phone: formData.get("phone"),
+        email: formData.get("email"),
+        service: formData.get("service"),
+        preferredDate: formData.get("preferred-date"),
+        preferredTime: formData.get("preferred-time"),
+        petSize: formData.get("pet-size"),
+        specialRequests: formData.get("special-requests"),
     };
-    
+
     // Show confirmation message
     showBookingConfirmation(bookingData);
 }
 
 // Show booking confirmation
 function showBookingConfirmation(data) {
-    const formContainer = document.querySelector('.booking-form');
-    
+    const formContainer = document.querySelector(".booking-form");
+
     // Get service name for display
     const serviceOptions = {
-        'full-grooming': 'Full Grooming',
-        'bath-brush': 'Bath & Brush',
-        'nail-care': 'Nail Care',
-        'specialty-treatments': 'Specialty Treatments'
+        "full-grooming": "Full Grooming",
+        "bath-brush": "Bath & Brush",
+        "nail-care": "Nail Care",
+        "specialty-treatments": "Specialty Treatments",
     };
-    
+
     const serviceName = serviceOptions[data.service] || data.service;
-    
+
     // Create confirmation message
     const confirmationHTML = `
         <div class="booking-confirmation">
@@ -578,7 +612,7 @@ function showBookingConfirmation(data) {
             <div class="booking-summary">
                 <h4>Booking Summary:</h4>
                 <div class="summary-item">
-                    <strong>Pet:</strong> ${data.petName}${data.petBreed ? ` (${data.petBreed})` : ''}
+                    <strong>Pet:</strong> ${data.petName}${data.petBreed ? ` (${data.petBreed})` : ""}
                 </div>
                 <div class="summary-item">
                     <strong>Owner:</strong> ${data.ownerName}
@@ -592,7 +626,7 @@ function showBookingConfirmation(data) {
                 <div class="summary-item">
                     <strong>Contact:</strong> ${data.phone} | ${data.email}
                 </div>
-                ${data.specialRequests ? `<div class="summary-item"><strong>Special Requests:</strong> ${data.specialRequests}</div>` : ''}
+                ${data.specialRequests ? `<div class="summary-item"><strong>Special Requests:</strong> ${data.specialRequests}</div>` : ""}
             </div>
             
             <div class="confirmation-actions">
@@ -601,12 +635,12 @@ function showBookingConfirmation(data) {
             </div>
         </div>
     `;
-    
+
     formContainer.innerHTML = confirmationHTML;
 }
 
 // Initialize everything when the page loads
-window.addEventListener('load', function() {
+window.addEventListener("load", function () {
     // Additional initialization after all resources are loaded
     loadGoogleMapsData();
 });
