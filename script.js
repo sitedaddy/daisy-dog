@@ -111,7 +111,14 @@ function loadGoogleReviews() {
                 const reviewCount = place.user_ratings_total || 0;
                 
                 overallRating.textContent = `${rating} (${reviewCount} reviews)`;
-                overallStars.innerHTML = createStarRating(rating);
+                // Clear existing content and safely append star rating
+                overallStars.textContent = '';
+                const starHTML = createStarRating(rating);
+                const tempDiv = document.createElement('div');
+                tempDiv.innerHTML = starHTML;
+                while (tempDiv.firstChild) {
+                    overallStars.appendChild(tempDiv.firstChild);
+                }
                 
                 // Display reviews (filter to show only positive reviews)
                 if (place.reviews && place.reviews.length > 0) {
