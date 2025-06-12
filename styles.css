@@ -69,6 +69,25 @@ body {
     gap: 10px;
 }
 
+.nav-brand-link {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    text-decoration: none;
+    color: var(--text-dark);
+    transition: all 0.3s ease;
+}
+
+.nav-brand-link:hover {
+    color: var(--thistle);
+}
+
+.nav-brand-text {
+    font-size: 1.4rem;
+    font-weight: 700;
+    color: var(--thistle);
+}
+
 .logo-main {
     height: 60px;
     width: auto;
@@ -173,17 +192,17 @@ body {
 
 .hero-logo-overlay {
     position: absolute;
-    top: -80px;
+    top: -150px;
     left: 50%;
     transform: translateX(-50%);
     z-index: 2;
 }
 
 .hero-logo {
-    width: 180px;
-    height: 180px;
+    width: 250px;
+    height: 250px;
     object-fit: contain;
-    filter: drop-shadow(0 6px 12px rgba(0, 0, 0, 0.3));
+    filter: drop-shadow(0 8px 16px rgba(0, 0, 0, 0.3));
 }
 
 .hero-subtitle {
@@ -732,6 +751,10 @@ section {
         display: flex;
     }
     
+    .nav-brand-text {
+        font-size: 1.2rem;
+    }
+    
     .nav-menu {
         position: fixed;
         left: -100%;
@@ -766,12 +789,12 @@ section {
     }
     
     .hero-logo-overlay {
-        top: -70px;
+        top: -120px;
     }
     
     .hero-logo {
-        width: 140px;
-        height: 140px;
+        width: 200px;
+        height: 200px;
     }
     
     .section-title {
@@ -815,17 +838,21 @@ section {
         padding: 1rem 1.5rem;
     }
     
+    .nav-brand-text {
+        font-size: 1rem;
+    }
+    
     .hero-title {
         font-size: 2rem;
     }
     
     .hero-logo-overlay {
-        top: -60px;
+        top: -100px;
     }
     
     .hero-logo {
-        width: 120px;
-        height: 120px;
+        width: 180px;
+        height: 180px;
     }
     
     .hero-subtitle {
