@@ -17,22 +17,21 @@ body {
     overflow-x: hidden;
 }
 
-/* Professional color palette */
+/* Daisy Dog Pet Grooming color palette */
 :root {
-    --thistle: #cdb4db;
-    --fairy-tale: #ffc8dd;
-    --carnation-pink: #ffafcc;
-    --uranian-blue: #bde0fe;
-    --light-sky-blue: #a2d2ff;
-    --primary-green: var(--thistle);
-    --accent-blue: var(--light-sky-blue);
-    --warm-beige: #f9f7fc;
+    --daisy-pink: #f3e8ff;
+    --daisy-navy: #1e3a8a;
+    --daisy-light-pink: #fdf2f8;
+    --daisy-accent: #8b5cf6;
+    --primary-green: var(--daisy-navy);
+    --accent-blue: var(--daisy-accent);
+    --warm-beige: var(--daisy-light-pink);
     --soft-cream: #faf8f3;
-    --text-dark: #333333;
+    --text-dark: var(--daisy-navy);
     --text-light: #666666;
-    --background-light: #f8f9fa;
+    --background-light: var(--daisy-pink);
     --white: #ffffff;
-    --gold-accent: var(--fairy-tale);
+    --gold-accent: var(--daisy-accent);
 }
 
 /* Container */
