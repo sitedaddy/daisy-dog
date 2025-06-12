@@ -176,7 +176,7 @@ async function fetchPlaceReviews() {
     try {
         // Use backend API proxy to fetch real Google reviews
         const response = await fetch(
-            "https://your-replit-app.replit.app/reviews?place_id=ChIJ4awl5Vxr1GoRMqAvH9ef19E",
+            "https://https://google-reviews-api-dray86.replit.app/reviews?place_id=ChIJ4awl5Vxr1GoRMqAvH9ef19E",
         );
 
         if (response.ok) {
