@@ -216,10 +216,10 @@ body {
 .hero-title {
     font-size: 3.5rem;
     font-weight: 700;
-    color: white;
+    color: var(--brand-navy-deep);
     margin: 0;
     line-height: 1.2;
-    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
+    text-shadow: 2px 2px 8px rgba(255, 215, 241, 0.6);
     text-align: center;
     position: relative;
     z-index: 1;
@@ -228,12 +228,13 @@ body {
 
 .hero-subtitle {
     font-size: 1.25rem;
-    color: rgba(255, 255, 255, 0.9);
+    color: var(--brand-slate);
     margin-bottom: 2rem;
     max-width: 600px;
     margin-left: auto;
     margin-right: auto;
-    text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.2);
+    text-shadow: 1px 1px 3px rgba(255, 215, 241, 0.4);
+    font-weight: 500;
 }
 
 .hero-buttons {
@@ -256,27 +257,31 @@ body {
 }
 
 .btn-primary {
-    background: var(--carnation-pink);
+    background: var(--brand-navy-dark);
     color: white;
+    font-size: 1.1rem;
+    padding: 15px 35px;
 }
 
 .btn-primary:hover {
-    background: var(--fairy-tale);
+    background: var(--brand-navy-deep);
     transform: translateY(-2px);
-    box-shadow: 0 8px 25px rgba(255, 175, 204, 0.4);
+    box-shadow: 0 10px 30px rgba(45, 57, 96, 0.4);
 }
 
 .btn-secondary {
     background: transparent;
-    color: var(--thistle);
-    border-color: var(--thistle);
+    color: var(--brand-navy-dark);
+    border-color: var(--brand-navy-dark);
+    font-size: 1.1rem;
+    padding: 15px 35px;
 }
 
 .btn-secondary:hover {
-    background: var(--thistle);
+    background: var(--brand-navy-dark);
     color: white;
     transform: translateY(-2px);
-    box-shadow: 0 8px 25px rgba(205, 180, 219, 0.4);
+    box-shadow: 0 10px 30px rgba(45, 57, 96, 0.3);
 }
 
 .btn-outline {
@@ -317,15 +322,16 @@ section {
 .section-title {
     font-size: 2.5rem;
     font-weight: 700;
-    color: var(--thistle);
+    color: var(--brand-navy-dark);
     margin-bottom: 1rem;
 }
 
 .section-subtitle {
     font-size: 1.1rem;
-    color: #666;
+    color: var(--brand-slate);
     max-width: 600px;
     margin: 0 auto;
+    font-weight: 500;
 }
 
 /* About Section */
