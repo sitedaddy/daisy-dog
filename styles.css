@@ -336,7 +336,7 @@ section {
 
 /* About Section */
 .about {
-    background: #f8f9fa;
+    background: var(--background-secondary);
 }
 
 .about-content {
@@ -346,7 +346,7 @@ section {
 
 .about-text h3 {
     font-size: 1.5rem;
-    color: var(--primary-green);
+    color: var(--brand-navy-dark);
     margin-bottom: 1rem;
     margin-top: 2rem;
 }
@@ -357,7 +357,7 @@ section {
 
 .about-text p {
     margin-bottom: 1.5rem;
-    color: #666;
+    color: var(--brand-slate);
     line-height: 1.8;
 }
 
@@ -383,18 +383,18 @@ section {
 
 .feature i {
     font-size: 2.5rem;
-    color: var(--primary-green);
+    color: var(--brand-navy-dark);
     margin-bottom: 1rem;
 }
 
 .feature h4 {
     font-size: 1.2rem;
-    color: var(--primary-green);
+    color: var(--brand-navy-dark);
     margin-bottom: 0.5rem;
 }
 
 .feature p {
-    color: #666;
+    color: var(--brand-slate);
     font-size: 0.9rem;
 }
 
@@ -409,21 +409,21 @@ section {
     background: white;
     padding: 2.5rem;
     border-radius: 15px;
-    box-shadow: 0 5px 30px rgba(0, 0, 0, 0.1);
+    box-shadow: 0 5px 30px rgba(45, 57, 96, 0.08);
     text-align: center;
     transition: all 0.3s ease;
-    border-top: 4px solid var(--primary-green);
+    border-top: 4px solid var(--brand-navy-dark);
 }
 
 .service-card:hover {
     transform: translateY(-10px);
-    box-shadow: 0 15px 40px rgba(0, 0, 0, 0.15);
+    box-shadow: 0 15px 40px rgba(45, 57, 96, 0.15);
 }
 
 .service-icon {
     width: 80px;
     height: 80px;
-    background: linear-gradient(135deg, var(--primary-green), var(--accent-blue));
+    background: linear-gradient(135deg, var(--brand-navy-dark), var(--brand-slate));
     border-radius: 50%;
     display: flex;
     align-items: center;
@@ -438,12 +438,12 @@ section {
 
 .service-card h3 {
     font-size: 1.5rem;
-    color: var(--primary-green);
+    color: var(--brand-navy-dark);
     margin-bottom: 1rem;
 }
 
 .service-card p {
-    color: #666;
+    color: var(--brand-slate);
     margin-bottom: 1.5rem;
 }
 
@@ -454,7 +454,7 @@ section {
 
 .service-features li {
     padding: 0.3rem 0;
-    color: #666;
+    color: var(--brand-slate);
     position: relative;
     padding-left: 1.5rem;
 }
@@ -463,14 +463,14 @@ section {
     content: '✓';
     position: absolute;
     left: 0;
-    color: var(--primary-green);
+    color: var(--brand-navy-dark);
     font-weight: bold;
 }
 
 .service-price {
     font-size: 1.5rem;
     font-weight: 700;
-    color: var(--accent-blue);
+    color: var(--brand-slate);
     margin: 1rem 0;
     display: flex;
     align-items: center;
@@ -496,7 +496,7 @@ section {
 
 .review-error i {
     font-size: 3rem;
-    color: var(--accent-blue);
+    color: var(--brand-slate);
     margin-bottom: 1rem;
 }
 
@@ -549,7 +549,7 @@ section {
 
 .rating-text {
     font-weight: 600;
-    color: #333;
+    color: var(--brand-navy-deep);
 }
 
 .reviews-container {
