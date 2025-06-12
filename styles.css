@@ -17,21 +17,34 @@ body {
     overflow-x: hidden;
 }
 
-/* Daisy Dog Pet Grooming color palette */
+/* Daisy Dog Pet Grooming - Official Brand Color Palette */
 :root {
-    --daisy-pink: #f3e8ff;
-    --daisy-navy: #1e3a8a;
-    --daisy-light-pink: #fdf2f8;
-    --daisy-accent: #8b5cf6;
-    --primary-green: var(--daisy-navy);
-    --accent-blue: var(--daisy-accent);
-    --warm-beige: var(--daisy-light-pink);
+    --brand-navy-dark: #2d3960;
+    --brand-pink-light: #ffd7f1;
+    --brand-pink-medium: #fed5f0;
+    --brand-slate: #4b4e6e;
+    --brand-navy-deep: #0c265a;
+    
+    /* Semantic color assignments */
+    --primary-color: var(--brand-navy-dark);
+    --secondary-color: var(--brand-pink-light);
+    --accent-color: var(--brand-pink-medium);
+    --text-primary: var(--brand-navy-deep);
+    --text-secondary: var(--brand-slate);
+    --background-primary: #ffffff;
+    --background-secondary: var(--brand-pink-light);
+    --background-accent: var(--brand-pink-medium);
+    
+    /* Legacy mappings for existing code */
+    --primary-green: var(--brand-navy-dark);
+    --accent-blue: var(--brand-slate);
+    --warm-beige: var(--brand-pink-light);
     --soft-cream: #faf8f3;
-    --text-dark: var(--daisy-navy);
-    --text-light: #666666;
-    --background-light: var(--daisy-pink);
+    --text-dark: var(--brand-navy-deep);
+    --text-light: var(--brand-slate);
+    --background-light: var(--brand-pink-light);
     --white: #ffffff;
-    --gold-accent: var(--daisy-accent);
+    --gold-accent: var(--brand-pink-medium);
 }
 
 /* Container */
@@ -47,10 +60,11 @@ body {
     top: 0;
     width: 100%;
     background: rgba(255, 255, 255, 0.95);
-    backdrop-filter: blur(10px);
-    box-shadow: 0 2px 20px rgba(0, 0, 0, 0.1);
+    backdrop-filter: blur(15px);
+    box-shadow: 0 2px 15px rgba(45, 57, 96, 0.08);
     z-index: 1000;
     transition: all 0.3s ease;
+    border-bottom: 1px solid var(--brand-pink-medium);
 }
 
 .nav-container {
@@ -78,13 +92,13 @@ body {
 }
 
 .nav-brand-link:hover {
-    color: var(--thistle);
+    color: var(--brand-navy-dark);
 }
 
 .nav-brand-text {
     font-size: 1.4rem;
     font-weight: 700;
-    color: var(--thistle);
+    color: var(--brand-navy-dark);
 }
 
 .logo-main {
@@ -100,30 +114,34 @@ body {
 
 .nav-link {
     text-decoration: none;
-    color: #333;
+    color: var(--brand-slate);
     font-weight: 500;
-    transition: color 0.3s ease;
+    transition: all 0.3s ease;
     position: relative;
+    padding: 0.5rem 0;
 }
 
 .nav-link:hover {
-    color: var(--primary-green);
+    color: var(--brand-navy-dark);
 }
 
 .nav-link::after {
     content: '';
     position: absolute;
-    bottom: -5px;
+    bottom: 0;
     left: 0;
     width: 0;
     height: 2px;
-    background: var(--primary-green);
+    background: var(--brand-navy-dark);
     transition: width 0.3s ease;
 }
 
-.nav-link:hover::after {
+.nav-link:hover::after,
+.nav-link.active::after {
     width: 100%;
 }
+
+
 
 .hamburger {
     display: none;
@@ -134,7 +152,7 @@ body {
 .bar {
     width: 25px;
     height: 3px;
-    background: #333;
+    background: var(--brand-slate);
     margin: 3px 0;
     transition: 0.3s;
 }
@@ -146,7 +164,7 @@ body {
     display: flex;
     align-items: center;
     overflow: hidden;
-    background: linear-gradient(135deg, var(--thistle) 0%, var(--uranian-blue) 100%);
+    background: linear-gradient(135deg, var(--brand-pink-light) 0%, var(--brand-pink-medium) 50%, var(--background-primary) 100%);
 }
 
 .hero-background {
