@@ -273,7 +273,12 @@ function initContactInfo() {
     
     // Load actual business information from Google Places API
     fetch('http://localhost:8080/api/place')
-        .then(response => response.json())
+        .then(response => {
+            if (!response.ok) {
+                throw new Error(`HTTP error! status: ${response.status}`);
+            }
+            return response.json();
+        })
         .then(data => {
             if (data && data.result) {
                 const place = data.result;
@@ -302,7 +307,7 @@ function initContactInfo() {
                     }).join('');
                     businessHours.innerHTML = hoursHTML;
                 } else {
-                    // Fallback hours based on API data
+                    // Updated hours based on current schedule
                     businessHours.innerHTML = `
                         <div class="business-hours-item">
                             <span>Monday</span>
@@ -310,7 +315,7 @@ function initContactInfo() {
                         </div>
                         <div class="business-hours-item">
                             <span>Tuesday</span>
-                            <span>8:00 AM - 12:30 PM</span>
+                            <span>8 am–12:30 pm</span>
                         </div>
                         <div class="business-hours-item">
                             <span>Wednesday</span>
@@ -322,7 +327,7 @@ function initContactInfo() {
                         </div>
                         <div class="business-hours-item">
                             <span>Friday</span>
-                            <span>8:00 AM - 12:30 PM</span>
+                            <span>8 am–12:30 pm</span>
                         </div>
                         <div class="business-hours-item">
                             <span>Saturday</span>
@@ -338,7 +343,7 @@ function initContactInfo() {
         })
         .catch(error => {
             console.error('Error loading business info:', error);
-            // Fallback contact information
+            // Fallback contact information with current business hours
             businessAddress.innerHTML = 'Winfield Court, Armstrong Creek VIC 3217, Australia';
             businessPhone.innerHTML = 'Contact via Facebook for appointments';
             businessHours.innerHTML = `
@@ -348,7 +353,7 @@ function initContactInfo() {
                 </div>
                 <div class="business-hours-item">
                     <span>Tuesday</span>
-                    <span>8:00 AM - 12:30 PM</span>
+                    <span>8 am–12:30 pm</span>
                 </div>
                 <div class="business-hours-item">
                     <span>Wednesday</span>
@@ -360,7 +365,7 @@ function initContactInfo() {
                 </div>
                 <div class="business-hours-item">
                     <span>Friday</span>
-                    <span>8:00 AM - 12:30 PM</span>
+                    <span>8 am–12:30 pm</span>
                 </div>
                 <div class="business-hours-item">
                     <span>Saturday</span>
