@@ -19,15 +19,20 @@ body {
 
 /* Professional color palette */
 :root {
-    --primary-green: #2c5530;
-    --accent-blue: #4a90a4;
-    --warm-beige: #f5f2e8;
+    --thistle: #cdb4db;
+    --fairy-tale: #ffc8dd;
+    --carnation-pink: #ffafcc;
+    --uranian-blue: #bde0fe;
+    --light-sky-blue: #a2d2ff;
+    --primary-green: var(--thistle);
+    --accent-blue: var(--light-sky-blue);
+    --warm-beige: #f9f7fc;
     --soft-cream: #faf8f3;
     --text-dark: #333333;
     --text-light: #666666;
     --background-light: #f8f9fa;
     --white: #ffffff;
-    --gold-accent: #d4af37;
+    --gold-accent: var(--fairy-tale);
 }
 
 /* Container */
