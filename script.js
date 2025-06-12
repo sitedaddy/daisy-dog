@@ -113,9 +113,11 @@ function loadGoogleReviews() {
                 overallRating.textContent = `${rating} (${reviewCount} reviews)`;
                 overallStars.innerHTML = createStarRating(rating);
                 
-                // Display reviews
+                // Display reviews (filter to show only positive reviews)
                 if (place.reviews && place.reviews.length > 0) {
-                    const reviewsHTML = place.reviews.slice(0, 6).map(review => {
+                    const positiveReviews = place.reviews.filter(review => review.rating >= 4);
+                    
+                    const reviewsHTML = positiveReviews.slice(0, 6).map(review => {
                         const reviewDate = new Date(review.time * 1000).toLocaleDateString();
                         const initials = review.author_name.split(' ').map(n => n[0]).join('').toUpperCase();
                         
@@ -269,45 +271,107 @@ function initContactInfo() {
     const businessPhone = document.getElementById('business-phone');
     const businessHours = document.getElementById('business-hours');
     
-    // Load actual business information
-    setTimeout(() => {
-        businessAddress.innerHTML = `
-            <span>Shop 4/1315 Heatherton Rd</span><br>
-            <span>Noble Park VIC 3174, Australia</span>
-        `;
-        businessPhone.innerHTML = '<a href="tel:+61395460022">(03) 9546 0022</a>';
-        
-        businessHours.innerHTML = `
-            <div class="business-hours-item">
-                <span>Monday</span>
-                <span>9:00 AM - 5:00 PM</span>
-            </div>
-            <div class="business-hours-item">
-                <span>Tuesday</span>
-                <span>9:00 AM - 5:00 PM</span>
-            </div>
-            <div class="business-hours-item">
-                <span>Wednesday</span>
-                <span>9:00 AM - 5:00 PM</span>
-            </div>
-            <div class="business-hours-item">
-                <span>Thursday</span>
-                <span>9:00 AM - 5:00 PM</span>
-            </div>
-            <div class="business-hours-item">
-                <span>Friday</span>
-                <span>9:00 AM - 5:00 PM</span>
-            </div>
-            <div class="business-hours-item">
-                <span>Saturday</span>
-                <span>9:00 AM - 4:00 PM</span>
-            </div>
-            <div class="business-hours-item">
-                <span>Sunday</span>
-                <span>Closed</span>
-            </div>
-        `;
-    }, 800);
+    // Load actual business information from Google Places API
+    fetch('http://localhost:8080/api/place')
+        .then(response => response.json())
+        .then(data => {
+            if (data && data.result) {
+                const place = data.result;
+                
+                // Update address
+                businessAddress.innerHTML = place.formatted_address || 'Address not available';
+                
+                // Update phone (if available)
+                if (place.formatted_phone_number) {
+                    const phoneNumber = place.formatted_phone_number;
+                    businessPhone.innerHTML = `<a href="tel:${phoneNumber.replace(/\s/g, '')}">${phoneNumber}</a>`;
+                } else {
+                    businessPhone.innerHTML = 'Contact via Facebook for phone number';
+                }
+                
+                // Update business hours
+                if (place.opening_hours && place.opening_hours.weekday_text) {
+                    const hoursHTML = place.opening_hours.weekday_text.map(dayHours => {
+                        const [day, hours] = dayHours.split(': ');
+                        return `
+                            <div class="business-hours-item">
+                                <span>${day}</span>
+                                <span>${hours}</span>
+                            </div>
+                        `;
+                    }).join('');
+                    businessHours.innerHTML = hoursHTML;
+                } else {
+                    // Fallback hours based on API data
+                    businessHours.innerHTML = `
+                        <div class="business-hours-item">
+                            <span>Monday</span>
+                            <span>Closed</span>
+                        </div>
+                        <div class="business-hours-item">
+                            <span>Tuesday</span>
+                            <span>8:00 AM - 12:30 PM</span>
+                        </div>
+                        <div class="business-hours-item">
+                            <span>Wednesday</span>
+                            <span>Closed</span>
+                        </div>
+                        <div class="business-hours-item">
+                            <span>Thursday</span>
+                            <span>Closed</span>
+                        </div>
+                        <div class="business-hours-item">
+                            <span>Friday</span>
+                            <span>8:00 AM - 12:30 PM</span>
+                        </div>
+                        <div class="business-hours-item">
+                            <span>Saturday</span>
+                            <span>Closed</span>
+                        </div>
+                        <div class="business-hours-item">
+                            <span>Sunday</span>
+                            <span>Closed</span>
+                        </div>
+                    `;
+                }
+            }
+        })
+        .catch(error => {
+            console.error('Error loading business info:', error);
+            // Fallback contact information
+            businessAddress.innerHTML = 'Winfield Court, Armstrong Creek VIC 3217, Australia';
+            businessPhone.innerHTML = 'Contact via Facebook for appointments';
+            businessHours.innerHTML = `
+                <div class="business-hours-item">
+                    <span>Monday</span>
+                    <span>Closed</span>
+                </div>
+                <div class="business-hours-item">
+                    <span>Tuesday</span>
+                    <span>8:00 AM - 12:30 PM</span>
+                </div>
+                <div class="business-hours-item">
+                    <span>Wednesday</span>
+                    <span>Closed</span>
+                </div>
+                <div class="business-hours-item">
+                    <span>Thursday</span>
+                    <span>Closed</span>
+                </div>
+                <div class="business-hours-item">
+                    <span>Friday</span>
+                    <span>8:00 AM - 12:30 PM</span>
+                </div>
+                <div class="business-hours-item">
+                    <span>Saturday</span>
+                    <span>Closed</span>
+                </div>
+                <div class="business-hours-item">
+                    <span>Sunday</span>
+                    <span>Closed</span>
+                </div>
+            `;
+        });
 }
 
 // Initialize scroll animations

@@ -409,7 +409,24 @@ section {
 
 /* Reviews Section */
 .reviews {
-    background: #f8f9fa;
+    background: var(--warm-beige);
+}
+
+.review-error {
+    text-align: center;
+    padding: 3rem;
+    color: var(--text-light);
+}
+
+.review-error i {
+    font-size: 3rem;
+    color: var(--accent-blue);
+    margin-bottom: 1rem;
+}
+
+.review-error p {
+    margin-bottom: 2rem;
+    font-size: 1.1rem;
 }
 
 .google-reviews-header {
