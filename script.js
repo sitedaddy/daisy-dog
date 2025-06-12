@@ -343,7 +343,7 @@ function initContactInfo() {
         })
         .catch(error => {
             console.error('Error loading business info:', error);
-            // Fallback contact information with current business hours
+            // Use authentic business information when API is unavailable
             businessAddress.innerHTML = 'Winfield Court, Armstrong Creek VIC 3217, Australia';
             businessPhone.innerHTML = 'Contact via Facebook for appointments';
             businessHours.innerHTML = `
