@@ -447,11 +447,35 @@ function loadGoogleMapsData() {
 function initBookingForm() {
     const bookingForm = document.getElementById('booking-form');
     const dateInput = document.getElementById('preferred-date');
+    const timeSelect = document.getElementById('preferred-time');
     
     // Set minimum date to today
     if (dateInput) {
         const today = new Date().toISOString().split('T')[0];
         dateInput.setAttribute('min', today);
+        
+        // Add event listener to validate selected date
+        dateInput.addEventListener('change', function() {
+            validateSelectedDate(this.value);
+        });
+    }
+    
+    // Add date validation helper
+    function validateSelectedDate(selectedDate) {
+        if (!selectedDate) return;
+        
+        const date = new Date(selectedDate);
+        const dayOfWeek = date.getDay(); // 0 = Sunday, 1 = Monday, ..., 6 = Saturday
+        
+        // Business is only open on Tuesday (2) and Friday (5)
+        const isBusinessDay = dayOfWeek === 2 || dayOfWeek === 5;
+        
+        if (!isBusinessDay) {
+            alert('Sorry, we are only open on Tuesdays and Fridays. Please select a different date.');
+            dateInput.value = '';
+            return false;
+        }
+        return true;
     }
     
     // Handle form submission
