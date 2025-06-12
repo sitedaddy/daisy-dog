@@ -177,7 +177,6 @@ body {
     display: flex;
     flex-direction: column;
     align-items: center;
-    gap: 2rem;
     margin-bottom: 1rem;
 }
 
@@ -185,6 +184,9 @@ body {
     display: flex;
     justify-content: center;
     align-items: center;
+    margin-bottom: -40px;
+    z-index: 2;
+    position: relative;
 }
 
 .hero-logo {
@@ -202,6 +204,9 @@ body {
     line-height: 1.2;
     text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
     text-align: center;
+    position: relative;
+    z-index: 1;
+    padding-top: 20px;
 }
 
 .hero-subtitle {
@@ -792,8 +797,12 @@ section {
         height: 200px;
     }
     
-    .hero-content-wrapper {
-        gap: 1.5rem;
+    .hero-logo-container {
+        margin-bottom: -30px;
+    }
+    
+    .hero-title {
+        padding-top: 15px;
     }
     
     .section-title {
@@ -850,8 +859,13 @@ section {
         height: 180px;
     }
     
-    .hero-content-wrapper {
-        gap: 1rem;
+    .hero-logo-container {
+        margin-bottom: -25px;
+    }
+    
+    .hero-title {
+        padding-top: 12px;
+        font-size: 2rem;
     }
     
     .hero-subtitle {
