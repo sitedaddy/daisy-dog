@@ -195,48 +195,36 @@ function getApiKey() {
     return window.GOOGLE_PLACES_API_KEY || null;
 }
 
-// Sample reviews data as fallback
+// Authentic Daisy Dog Pet Grooming reviews data as fallback
 function getSampleReviewsData() {
     return {
         result: {
-            rating: 4.9,
-            user_ratings_total: 47,
+            rating: 5.0,
+            user_ratings_total: 17,
             reviews: [
                 {
-                    author_name: "Sarah Johnson",
+                    author_name: "Melissa Amos",
                     rating: 5,
-                    text: "Absolutely amazing service! My golden retriever looks fantastic after his grooming session. The staff are so gentle and caring with the animals. Highly recommend!",
-                    time: Date.now() / 1000 - 86400 * 7,
+                    text: "Fantastic groomer! Michelle is incredibly kind and patient with my dogs. She has a wealth of knowledge in grooming and is always happy to give advise and strategies to use for grooming at home. My dogs always look and smell amazing after they have been to Michelle. I highly recommend Daisy Dog Grooming!",
+                    time: 1701423757,
                 },
                 {
-                    author_name: "Mark Thompson",
+                    author_name: "Wally Szuszkiewicz",
                     rating: 5,
-                    text: "Best pet grooming in the area! Professional, affordable, and my dog actually enjoys going there. The new haircut looks perfect!",
-                    time: Date.now() / 1000 - 86400 * 14,
+                    text: "I have been taking my female cavoodle to Michelle for the past 2 years after my previous groomed moved out of the area and I was able to find Michelle and found her to be friendly and takes the time to discuss my requirements upon arrival. Her work is consistent, efficient and exceptional value for money. Keep up the great work!",
+                    time: 1709792998,
                 },
                 {
-                    author_name: "Emma Wilson",
+                    author_name: "Monica Sokol",
                     rating: 5,
-                    text: "Five stars! They did an incredible job with my poodle's grooming. Very clean facility and the staff clearly love animals. Will definitely be back!",
-                    time: Date.now() / 1000 - 86400 * 21,
+                    text: "I have been taking my male groodle to Michelle for the past 12 months now as I recently moved into the area and was looking for a decent groomer. Michelle is always so friendly and takes the time to discuss my requirements upon arrival. Her work is consistent, efficient and exceptional value for money. Keep up the great work!",
+                    time: 1700106397,
                 },
                 {
-                    author_name: "David Chen",
-                    rating: 4,
-                    text: "Great experience overall. Professional service and reasonable prices. My dog was nervous but they handled him with such care and patience.",
-                    time: Date.now() / 1000 - 86400 * 30,
-                },
-                {
-                    author_name: "Lisa Rodriguez",
+                    author_name: "Judy Rutter",
                     rating: 5,
-                    text: "Outstanding! They transformed my scruffy rescue dog into a beautiful, clean pup. The attention to detail is impressive. Thank you!",
-                    time: Date.now() / 1000 - 86400 * 45,
-                },
-                {
-                    author_name: "James Mitchell",
-                    rating: 5,
-                    text: "Excellent service and very professional. My cat needed a special shampoo for sensitive skin and they handled it perfectly. Highly recommend!",
-                    time: Date.now() / 1000 - 86400 * 60,
+                    text: "My dogs love Michelle! We have followed her as she moved down here, because I have never found better.",
+                    time: 1741312493,
                 },
             ],
         },
@@ -250,7 +238,7 @@ function showReviewsError(message) {
         <div class="review-error">
             <i class="fas fa-exclamation-triangle"></i>
             <p>${message}</p>
-            <a href="https://maps.app.goo.gl/f1cB1SsKfV4YYbDP9" target="_blank" class="btn btn-outline">
+            <a href="https://g.co/kgs/CJ3nWsN" target="_blank" class="btn btn-outline">
                 View Reviews on Google Maps
             </a>
         </div>
