@@ -456,6 +456,41 @@ function initBookingForm() {
             handleBookingSubmission();
         });
     }
+    
+    // Handle service selection buttons
+    const serviceButtons = document.querySelectorAll('.service-card .btn-primary');
+    serviceButtons.forEach(button => {
+        button.addEventListener('click', function(e) {
+            e.preventDefault();
+            
+            // Get the service name from the card
+            const serviceCard = this.closest('.service-card');
+            const serviceName = serviceCard.querySelector('h3').textContent;
+            
+            // Set the service in the booking form
+            const serviceSelect = document.getElementById('service');
+            if (serviceSelect) {
+                // Find the matching option
+                const option = Array.from(serviceSelect.options).find(opt => 
+                    opt.text.toLowerCase().includes(serviceName.toLowerCase()) ||
+                    serviceName.toLowerCase().includes(opt.text.toLowerCase())
+                );
+                
+                if (option) {
+                    serviceSelect.value = option.value;
+                } else {
+                    // If no exact match, set to "Other" and show the service name
+                    serviceSelect.value = 'other';
+                }
+            }
+            
+            // Scroll to booking section
+            document.getElementById('booking').scrollIntoView({ 
+                behavior: 'smooth',
+                block: 'start'
+            });
+        });
+    });
 }
 
 // Handle booking form submission

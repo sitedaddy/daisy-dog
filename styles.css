@@ -128,7 +128,7 @@ body {
     display: flex;
     align-items: center;
     overflow: hidden;
-    background: linear-gradient(135deg, #f8f9fa 0%, #e9ecef 100%);
+    background: linear-gradient(135deg, var(--thistle) 0%, var(--uranian-blue) 100%);
 }
 
 .hero-background {
@@ -191,14 +191,14 @@ body {
 }
 
 .btn-primary {
-    background: var(--primary-green);
+    background: var(--carnation-pink);
     color: white;
 }
 
 .btn-primary:hover {
-    background: #1e3a21;
+    background: var(--fairy-tale);
     transform: translateY(-2px);
-    box-shadow: 0 8px 25px rgba(44, 85, 48, 0.3);
+    box-shadow: 0 8px 25px rgba(255, 175, 204, 0.4);
 }
 
 .btn-secondary {
@@ -608,12 +608,28 @@ section {
 .business-hours-item {
     display: flex;
     justify-content: space-between;
-    padding: 0.2rem 0;
-    border-bottom: 1px solid #eee;
+    align-items: center;
+    padding: 0.75rem 1rem;
+    margin-bottom: 0.5rem;
+    background: var(--white);
+    border-radius: 8px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
+    border-left: 4px solid var(--accent-blue);
 }
 
 .business-hours-item:last-child {
-    border-bottom: none;
+    margin-bottom: 0;
+}
+
+.business-hours-item span:first-child {
+    font-weight: 600;
+    color: var(--text-dark);
+    min-width: 100px;
+}
+
+.business-hours-item span:last-child {
+    color: var(--text-light);
+    font-weight: 500;
 }
 
 .map-container {
