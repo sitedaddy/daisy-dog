@@ -948,25 +948,25 @@ section {
 
 /* Booking Section */
 .booking {
-    background: linear-gradient(135deg, var(--thistle), var(--light-sky-blue));
-    color: white;
+    background: var(--brand-pink-light);
+    color: var(--brand-navy-deep);
 }
 
 .booking .section-title {
-    color: white;
+    color: var(--brand-navy-deep);
 }
 
 .booking .section-subtitle {
-    color: rgba(255, 255, 255, 0.9);
+    color: var(--brand-slate);
 }
 
 .booking-form {
     max-width: 600px;
     margin: 0 auto;
-    background: rgba(255, 255, 255, 0.1);
+    background: rgba(255, 255, 255, 0.95);
     padding: 3rem;
     border-radius: 20px;
-    backdrop-filter: blur(10px);
+    box-shadow: 0 10px 30px rgba(45, 57, 96, 0.1);
 }
 
 .form-group {
