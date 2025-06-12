@@ -150,23 +150,18 @@ function loadGoogleReviews() {
 
 // Fetch place details including reviews
 async function fetchPlaceReviews() {
-    const placeId = 'ChIJ1520_Tu-1moRxajFywtcpOA'; // Fetch22 Pet Styling place ID
-    const apiKey = getApiKey();
-    
-    if (!apiKey) {
-        throw new Error('Google Places API key not available');
-    }
-    
-    const url = `https://maps.googleapis.com/maps/api/place/details/json?place_id=${placeId}&fields=rating,reviews,user_ratings_total&key=${apiKey}`;
-    
     try {
-        // Note: Direct API calls from frontend have CORS limitations
-        // This would need to be implemented via a backend proxy
-        const response = await fetch(url);
-        return await response.json();
+        // Use backend API proxy to fetch real Google reviews
+        const response = await fetch('http://localhost:8080/api/reviews');
+        
+        if (response.ok) {
+            return await response.json();
+        } else {
+            throw new Error(`API request failed: ${response.status}`);
+        }
     } catch (error) {
         console.error('Places API error:', error);
-        // Fallback to display sample reviews with real business info
+        // Fallback to sample data if API is not available
         return getSampleReviewsData();
     }
 }

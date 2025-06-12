@@ -27,7 +27,7 @@ class APIHandler(BaseHTTPRequestHandler):
     def handle_reviews_request(self):
         try:
             # Fetch22 Pet Styling Place ID
-            place_id = "ChIJ1520_Tu-1moRxajFywtcpOA"
+            place_id = "ChIJ4awl5Vxr1GoRMqAvH9ef19E"
             api_key = os.environ.get('GOOGLE_PLACES_API_KEY')
             
             if not api_key:
@@ -59,7 +59,7 @@ class APIHandler(BaseHTTPRequestHandler):
     
     def handle_place_request(self):
         try:
-            place_id = "ChIJ1520_Tu-1moRxajFywtcpOA"
+            place_id = "ChIJ4awl5Vxr1GoRMqAvH9ef19E"
             api_key = os.environ.get('GOOGLE_PLACES_API_KEY')
             
             if not api_key:
@@ -103,17 +103,9 @@ class APIHandler(BaseHTTPRequestHandler):
         self.wfile.write(json.dumps(error_data).encode())
 
 def start_api_server():
-    server = HTTPServer(('localhost', 8080), APIHandler)
+    server = HTTPServer(('0.0.0.0', 8080), APIHandler)
+    print("API server started on http://0.0.0.0:8080")
     server.serve_forever()
 
 if __name__ == '__main__':
-    # Start API server in background thread
-    api_thread = threading.Thread(target=start_api_server, daemon=True)
-    api_thread.start()
-    print("API server started on http://localhost:8080")
-    
-    # Keep the main thread alive
-    try:
-        api_thread.join()
-    except KeyboardInterrupt:
-        print("Shutting down...")
+    start_api_server()
