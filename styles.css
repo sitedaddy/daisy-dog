@@ -766,12 +766,12 @@ section {
     }
     
     .hero-logo-overlay {
-        top: -60px;
+        top: -70px;
     }
     
     .hero-logo {
-        width: 100px;
-        height: 100px;
+        width: 140px;
+        height: 140px;
     }
     
     .section-title {
@@ -820,12 +820,12 @@ section {
     }
     
     .hero-logo-overlay {
-        top: -50px;
+        top: -60px;
     }
     
     .hero-logo {
-        width: 80px;
-        height: 80px;
+        width: 120px;
+        height: 120px;
     }
     
     .hero-subtitle {

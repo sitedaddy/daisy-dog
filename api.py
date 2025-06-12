@@ -59,7 +59,7 @@ class APIHandler(BaseHTTPRequestHandler):
     
     def handle_place_request(self):
         try:
-            place_id = "ChIJwazJJyvrYmoR_5NFQT_rYOI"
+            place_id = "ChIJ4awl5Vxr1GoRMqAvH9ef19E"
             api_key = os.environ.get('GOOGLE_PLACES_API_KEY')
             
             if not api_key:
