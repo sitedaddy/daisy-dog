@@ -1,6 +1,6 @@
-# Fetch22 Pet Styling Website
+# Daisy Dog Pet Grooming Website
 
-A professional pet grooming website for Fetch22 Pet Styling, featuring real-time Google reviews integration and modern responsive design.
+A professional pet grooming website for Daisy Dog Pet Grooming, featuring real-time Google reviews integration and modern responsive design.
 
 ## Features
 
@@ -28,8 +28,8 @@ A professional pet grooming website for Fetch22 Pet Styling, featuring real-time
 
 1. Clone the repository:
 ```bash
-git clone https://github.com/yourusername/fetch22-pet-grooming.git
-cd fetch22-pet-grooming
+git clone https://github.com/yourusername/daisy-dog-pet-grooming.git
+cd daisy-dog-pet-grooming
 ```
 
 2. Install dependencies:
@@ -60,7 +60,7 @@ The website uses Google Places API to fetch real customer reviews and business i
 ## File Structure
 
 ```
-fetch22-pet-grooming/
+daisy-dog-pet-grooming/
 ├── index.html          # Main website page
 ├── styles.css          # Website styling
 ├── script.js           # Frontend JavaScript
@@ -88,8 +88,8 @@ fetch22-pet-grooming/
 
 ## License
 
-This project is proprietary software for Fetch22 Pet Styling.
+This project is proprietary software for Daisy Dog Pet Grooming.
 
 ## Contact
 
-For support or inquiries, please contact Fetch22 Pet Styling directly through the website.
+For support or inquiries, please contact Daisy Dog Pet Grooming directly through the website.
